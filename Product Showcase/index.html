@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Showcase</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <h1>Our Products</h1>
+
+    <!-- Search Box -->
+    <input type="text" id="search-box" placeholder="Search products by name..." />
+
+    <!-- Sorting Dropdown -->
+    <select id="sort-dropdown">
+        <option value="">Sort By</option>
+        <option value="price-asc">Price (Low → High)</option>
+        <option value="price-desc">Price (High → Low)</option>
+        <option value="name-asc">Name (A → Z)</option>
+    </select>
+
+    <button id="toggle-cart" class="cart-toggle">🛒 View Cart</button>
+
+    <!-- Product List -->
+    <div id="product-list" class="product-container"></div>
+
+    <!-- Pagination Buttons -->
+    <div id="pagination-buttons"></div>
+
+    <!-- Cart Drawer -->
+    <div id="cart-drawer" class="cart-drawer">
+        <h2>Your Cart</h2>
+        <ul id="cart-items"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
