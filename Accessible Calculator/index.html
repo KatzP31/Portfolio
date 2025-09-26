@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accessible Calculator</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --hover: #2980b9;
+            --text: #ffffff;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .calculator {
+            background: var(--primary);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            color: var(--text);
+        }
+
+        .display {
+            width: 100%;
+            height: 40px;
+            margin-bottom: 10px;
+            text-align: right;
+            padding: 5px;
+            font-size: 1.2rem;
+            background: var(--light);
+            color: #000;
+            border-radius: 5px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 60px);
+            gap: 10px;
+        }
+
+        button {
+            padding: 15px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+            background: var(--accent);
+            color: var(--text);
+        }
+
+        button:hover {
+            background: var(--hover);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator" role="application" aria-label="Calculator">
+        <input type="text" id="display" class="display" disabled aria-live="polite" aria-label="Calculator display" />
+        <div class="buttons">
+            <button aria-label="Seven">7</button>
+            <button aria-label="Eight">8</button>
+            <button aria-label="Nine">9</button>
+            <button aria-label="Divide">/</button>
+            <button aria-label="Four">4</button>
+            <button aria-label="Five">5</button>
+            <button aria-label="Six">6</button>
+            <button aria-label="Multiply">*</button>
+            <button aria-label="One">1</button>
+            <button aria-label="Two">2</button>
+            <button aria-label="Three">3</button>
+            <button aria-label="Subtract">-</button>
+            <button aria-label="Zero">0</button>
+            <button aria-label="Decimal">.</button>
+            <button aria-label="Equals">=</button>
+            <button aria-label="Add">+</button>
+            <button id="clear" aria-label="Clear">C</button>
+            <button id="prime" aria-label="Check Prime">Prime</button>
+            <button id="sqrt" aria-label="Square Root">√</button>
+            <button id="abs" aria-label="Absolute Value">|x|</button>
+        </div>
+    </div>
+
+    <script>
+        const display = document.getElementById('display');
+        const buttons = document.querySelectorAll('button');
+        let currentInput = "";
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const value = button.textContent;
+                if (value === '=') {
+                    try {
+                        currentInput = eval(currentInput);
+                        display.value = currentInput;
+                    } catch (error) {
+                        display.value = "Error";
+                    }
+                } else {
+                    currentInput += value;
+                    display.value = currentInput;
+                }
+            });
+        });
+
+        document.getElementById('clear').addEventListener('click', () => {
+            currentInput = "";
+            display.value = "";
+        });
+
+        document.getElementById('prime').addEventListener('click', () => {
+            const num = parseInt(currentInput);
+            if (isNaN(num)) {
+                display.value = "Not a number";
+                return;
+            }
+            if (num < 2) {
+                display.value = "Not Prime";
+                return;
+            }
+            let isPrime = true;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            display.value = isPrime ? "Prime" : "Not Prime";
+        });
+
+        document.getElementById('sqrt').addEventListener('click', () => {
+            const num = parseFloat(currentInput);
+            if (isNaN(num)) {
+                display.value = "Not a number";
+                return;
+            }
+            if (num < 0) {
+                display.value = "Invalid input";
+                return;
+            }
+            const result = Math.sqrt(num);
+            display.value = result;
+            currentInput = result.toString();
+        });
+
+        document.getElementById('abs').addEventListener('click', () => {
+            const num = parseFloat(currentInput);
+            if (isNaN(num)) {
+                display.value = "Not a number";
+                return;
+            }
+            const result = Math.abs(num);
+            display.value = result;
+            currentInput = result.toString();
+        });
+    </script>
+</body>
+
+</html>
