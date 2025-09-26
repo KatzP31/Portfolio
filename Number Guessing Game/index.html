@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loop Showcase</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <h1>Loop Demonstration</h1>
+
+    <div class="loop-container">
+        <h2>For Loop</h2>
+        <div id="loop1" class="loop-box"></div>
+        <div class="button-group">
+            <button onclick="startForLoop()">Start</button>
+            <button onclick="resetLoop('loop1')">Restart</button>
+        </div>
+    </div>
+
+    <div class="loop-container">
+        <h2>While Loop</h2>
+        <div id="loop2" class="loop-box"></div>
+        <div class="button-group">
+            <button onclick="startWhileLoop()">Start</button>
+            <button onclick="resetLoop('loop2')">Restart</button>
+        </div>
+    </div>
+
+    <div class="loop-container">
+        <h2>Color Loop</h2>
+        <div id="loop3" class="loop-box"></div>
+        <div class="button-group">
+            <button onclick="startColorLoop()">Start</button>
+            <button onclick="resetLoop('loop3')">Restart</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
