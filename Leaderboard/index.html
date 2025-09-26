@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="table-container">
+        <h1>Leaderboard</h1>
+        <div class="table-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Avatar</th>
+                        <th class="sortable">First Name</th>
+                        <th class="sortable">Last Name</th>
+                        <th class="sortable">Score</th>
+                        <th>Level</th>
+                        <th>Join Date</th>
+                        <th>Country</th>
+                    </tr>
+                </thead>
+                <tbody id="player-body"></tbody>
+            </table>
+        </div>
+        <div class="pagination">
+            <button id="prev">Prev</button>
+            <span id="page-info"></span>
+            <button id="next">Next</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

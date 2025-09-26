@@ -1,0 +1,195 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* Base styles for the body */
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: #0f0f1f;
+    /* Dark background */
+    color: #fff;
+    /* White text */
+    margin: 0;
+    padding: 15px;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Container for the leaderboard */
+.table-container {
+    max-width: 100%;
+    margin: auto;
+    background: rgba(15, 15, 31, 0.95);
+    /* Semi-transparent dark background */
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0, 255, 200, 0.4);
+    /* Neon glow effect */
+    overflow-x: auto;
+    /* Enables horizontal scroll */
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Leaderboard title */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+    color: #0ff;
+    text-shadow: 0 0 8px #0ff, 0 0 15px #09f;
+}
+
+/* Table layout */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+    /* Ensures table is wide enough to scroll */
+}
+
+/* Table cells */
+th,
+td {
+    border: 1px solid rgba(0, 255, 200, 0.5);
+    padding: 10px;
+    text-align: center;
+    transition: background 0.3s ease, color 0.3s ease;
+    font-size: clamp(12px, 2vw, 16px);
+}
+
+/* Table headers styled like buttons */
+th {
+    background: rgba(0, 255, 200, 0.2);
+    color: #0ff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hover and active effects for headers */
+th:hover {
+    background: #0ff;
+    color: #000;
+    font-weight: 900;
+    text-shadow: 0 0 10px #09f;
+}
+
+th:active {
+    transform: scale(0.97);
+}
+
+/* Alternate row background */
+tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Row hover effect */
+tbody tr:hover {
+    background: rgba(0, 255, 200, 0.1);
+    color: #ff0;
+    box-shadow: 0 0 10px #0ff inset;
+}
+
+/* Avatar image styling */
+.avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #0ff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.avatar:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #0ff, 0 0 25px #09f;
+}
+
+/* Pagination controls */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* Button styling */
+button {
+    min-width: 80px;
+    margin: 5px;
+    padding: 12px 18px;
+    border: 2px solid #0ff;
+    border-radius: 6px;
+    background: transparent;
+    color: #0ff;
+    font-size: clamp(13px, 2.5vw, 16px);
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Button hover effect */
+button:hover:not(:disabled) {
+    background: #0ff;
+    color: #000;
+    box-shadow: 0 0 12px #0ff, 0 0 25px #09f;
+}
+
+/* Disabled button style */
+button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Page info text */
+#page-info {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    color: #fff;
+    margin-top: 8px;
+}
+
+/* Responsive tweaks for tablets */
+@media (max-width: 768px) {
+
+    th,
+    td {
+        padding: 6px;
+    }
+
+    .avatar {
+        width: 38px;
+        height: 38px;
+    }
+
+    h1 {
+        margin-bottom: 15px;
+    }
+}
+
+/* Responsive tweaks for mobile */
+@media (max-width: 480px) {
+    .table-container {
+        padding: 10px;
+    }
+
+    table {
+        min-width: 600px;
+        /* Ensures horizontal scroll on small screens */
+    }
+
+    button {
+        width: 100px;
+        padding: 10px;
+    }
+}
+
+/* Scroll wrapper for table */
+.table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
